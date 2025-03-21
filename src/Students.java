@@ -53,4 +53,39 @@ public class Students {
         writer.close();
     }
 
+    // Delete method
+    public void delete(String stdId) throws IOException {
+        File inputFile = new File(filePath);
+        File tempFile = new File("temp.txt");
+
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] fields = line.split("\t");
+            if (!fields[0].equals(stdId)) {
+                writer.write(line + System.lineSeparator());
+        }
+
+        reader.close();
+        writer.close();
+        inputFile.delete();
+        tempFile.renameTo(inputFile);
+
+        }
+    }
+
+    // Display method
+    public void display() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        reader.close();
+    }
+
 }
