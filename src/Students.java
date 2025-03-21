@@ -88,4 +88,36 @@ public class Students {
         reader.close();
     }
 
+    // Stats method
+    public void stats() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        Map<String, Integer> genderCount = new HashMap<>();
+        double totalCgpa = 0;
+        int totalStudents = 0;
+
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] fields = line.split("\t");
+            String gender = fields[4];
+            double cgpa = Double.parseDouble(fields[2]);
+
+            genderCount.put(gender, genderCount.getOrDefault(gender, 0) + 1);
+            totalCgpa += cgpa;
+            totalStudents++;
+        }
+
+        reader.close();
+
+        // Write stats to stats.txt
+        String statsPath = filePath.substring(0, filePath.lastIndexOf("\\")) + "\\stats.txt";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(statsPath));
+
+        writer.write("Male Students: " + genderCount.getOrDefault("Male", 0) + System.lineSeparator());
+        writer.write("Female Students: " + genderCount.getOrDefault("Female", 0) + System.lineSeparator());
+        writer.write("Average CGPA: " + (totalCgpa / totalStudents) + System.lineSeparator());
+        writer.write("Total Students: " + totalStudents + System.lineSeparator());
+
+        writer.close();
+    }
+
 }
