@@ -1,7 +1,1 @@
 1234,John Doe                      ,3.16,22-01-1985,M
-0021,Jane White                    ,2.05,12-02-1980,F
-9821,Tom Jennings		   ,1.93,16-03-1990,M 
-6235,Kim Blue			   ,1.85,15-04-1992,F
-1253,Bart Simpson		   ,2.01,19-05-1989,M 
-9821,Alice Wonderland		   ,2.37,25-03-1990,F 123	Alice	3.9	2025-03-21	Female
-123	Alice	4.0	2025-03-21	Female
