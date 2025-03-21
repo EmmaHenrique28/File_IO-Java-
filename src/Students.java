@@ -46,5 +46,11 @@ public class Students {
         tempFile.renameTo(inputFile);
     }
 
-    
+    // Insert method
+    public void insert(String stdId, String name, String cgpa, String date, String gender) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+        writer.write(stdId + "\t" + name + "\t" + cgpa + "\t" + date + "\t" + gender + System.lineSeparator());
+        writer.close();
+    }
+
 }
